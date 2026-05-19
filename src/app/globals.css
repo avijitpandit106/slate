@@ -1,26 +1,59 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.ProseMirror:focus {
+	outline: none;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: #9ca3af;
+  pointer-events: none;
+  float: left;
+  height: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* reset unwanted spacing */
+.ProseMirror {
+  outline: none;
+  white-space: pre-wrap;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* remove default paragraph spacing */
+.ProseMirror p {
+  margin: 0;
+}
+
+/* headings */
+.ProseMirror h1 {
+  font-size: 1.5rem;   /* 24px */
+  font-weight: 700;
+}
+
+.ProseMirror h2 {
+  font-size: 1.25rem;  /* 20px */
+  font-weight: 600;
+}
+
+.ProseMirror h3 {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+}
+
+/* lists */
+.ProseMirror ul {
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.ProseMirror ol {
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.ProseMirror p,
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3 {
+  margin: 0;
 }
